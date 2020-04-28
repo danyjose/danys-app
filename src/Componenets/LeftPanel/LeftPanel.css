@@ -1,0 +1,7 @@
+.left-panel {
+    width: 50%;
+    float: left;
+    max-height: fit-content;
+    background-image: url('../../Images/purple.jpg');
+    height: 100vh;
+}
