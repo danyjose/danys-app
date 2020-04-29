@@ -46,3 +46,6 @@ input:focus {
     float: left;
     margin: 15px 0px;
 }
+.login-error {
+    color: #7d0000;
+}
