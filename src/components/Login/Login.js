@@ -1,4 +1,5 @@
 import React, {useState}from 'react';
+import Button from '../Button/Button';
 import './Login.css';
 
 const Login = () => {
@@ -51,9 +52,9 @@ const Login = () => {
                     </div>
                     <div className = "login-forgot-pass">Forgot Password?</div>
                 </div>
-                <button className = "login-button" >
+                <Button className = "login-button">
                     Login
-                </button>
+                </Button>
             </form>
         </div>
     )
