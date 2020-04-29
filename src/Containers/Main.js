@@ -1,6 +1,6 @@
 import React from 'react';
-import Login  from '../Componenets/Login/Login';
-import LeftPanel  from '../Componenets/LeftPanel/LeftPanel';
+import Login  from '../components/Login/Login';
+import LeftPanel  from '../components/LeftPanel/LeftPanel';
 
 
 class Main extends React.Component {
