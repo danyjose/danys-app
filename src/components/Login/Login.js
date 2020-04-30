@@ -1,11 +1,13 @@
 import React, {useState}from 'react';
 import Button from '../Button/Button';
+import { useHistory } from "react-router-dom";
 import './Login.css';
 
 const Login = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    let history = useHistory();
 
     const onLogin = (event) => {
         event.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
         } else {
             setPassword("");
             setUserName("");
-            alert("Login Successfull!");
+            history.push('/landingPage');
         }
         console.log(userName,password);
     }
