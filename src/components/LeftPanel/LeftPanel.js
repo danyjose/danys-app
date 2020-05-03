@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './LeftPanel.css';
+import './leftPanel.css';
 import Button from '../Button/Button';
 import twitter from  '../../Images/twitter.png';
 import facebook from  '../../Images/facebook.png';

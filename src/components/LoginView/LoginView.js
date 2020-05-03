@@ -1,7 +1,7 @@
 import React, {useState}from 'react';
 import Button from '../Button/Button';
 import { useHistory } from "react-router-dom";
-import './Login.css';
+import './loginView.css';
 
 const Login = () => {
     const [userName, setUserName] = useState('');

@@ -1,5 +1,5 @@
 import React from 'react';
-import Login  from '../components/Login/Login';
+import LoginView  from '../components/LoginView/LoginView';
 import LeftPanel  from '../components/LeftPanel/LeftPanel';
 
 
@@ -9,7 +9,7 @@ class Main extends React.Component {
         return (
             <div>
             <LeftPanel />
-            <Login />
+            <LoginView />
         </div>
         )
     }

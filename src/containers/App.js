@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter,Route, Switch} from 'react-router-dom';
 
-import Main from './Main';
-import LandingPage from '../components/LandingPage/LandingPage';
+import Main from './Login';
+import LandingPage from '../components/LandingPage/MainPage';
 import '../App.css';
 
 function App() {
