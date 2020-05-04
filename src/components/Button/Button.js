@@ -5,7 +5,6 @@ import twitter from  '../../Images/twitter.png';
 import facebook from  '../../Images/facebook.png';
 
 const Button = ({className, type, text}) => {
-    console.log('twitter',twitter);
     switch (type){
         case 'icon':
             return (

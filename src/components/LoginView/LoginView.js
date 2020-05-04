@@ -6,25 +6,29 @@ import Button from '../Button/Button';
 import './loginview.css';
 
 const Login = () => {
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
+    const [formState, setFormState] = useState({userName: "", password: ""});
     const [error, setError] = useState('');
     let history = useHistory();
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        console.log("handeChange",name, value);
+        setFormState({
+            ...formState,
+            [name]: value
+          });
+      };
     const onLogin = (event) => {
         event.preventDefault();
-        console.log(userName, password);
-        if(userName !== 'danyjose' && password !== '1234') {
+        console.log(formState.userName, formState.password);
+        if(formState.userName !== 'danyjose' && formState.password !== '1234') {
             setError('Usename or password is incorrect!')
-            setPassword("");
-            setUserName("");
             setTimeout(function(){ setError(""); }, 3000);
         } else {
-            setPassword("");
-            setUserName("");
+            setFormState({});
             history.push('/mainPage');
         }
-        console.log(userName,password);
+        console.log(formState.userName,formState.password);
     }
     return(
         <div className = "login-panel">
@@ -36,15 +40,17 @@ const Login = () => {
                         type = 'text'
                         placeholder = 'Username'
                         id = 'userName'
-                        value = {userName}
-                        onChange={e => setUserName(e.target.value)}
+                        value = {formState.userName}
+                        name = 'userName'
+                        onChange={handleChange}
                     /> 
                     <Input className = "login-input"
                         type ="Password"
                         placeholder = "Password"
                         id="password"
-                        value = {password}
-                        onChange={e => setPassword(e.target.value)}
+                        value = {formState.password}
+                        name = 'password'
+                        onChange={handleChange}
                     />
                 <div>
                     <div className = "login-remember-me">
