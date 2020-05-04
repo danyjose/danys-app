@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './leftPanel.css';
+import './leftpanel.css';
 import Button from '../Button/Button';
 
 const LeftPanel = () =>{

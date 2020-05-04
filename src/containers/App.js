@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter,Route, Switch} from 'react-router-dom';
 
 import Main from './Login';
-import LandingPage from '../components/LandingPage/MainPage';
+import MainPage from '../components/MainPage/MainPage';
 import '../App.css';
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
           <Route  exact path='/'>
             <Main />
           </Route>
-          <Route path='/landingPage'>
-            <LandingPage />
+          <Route path='/mainPage'>
+            <MainPage />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React, {useState}from 'react';
 import Button from '../Button/Button';
 import { useHistory } from "react-router-dom";
-import './loginView.css';
+import './loginview.css';
 
 const Login = () => {
     const [userName, setUserName] = useState('');
@@ -20,7 +20,7 @@ const Login = () => {
         } else {
             setPassword("");
             setUserName("");
-            history.push('/landingPage');
+            history.push('/mainPage');
         }
         console.log(userName,password);
     }
