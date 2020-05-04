@@ -5,7 +5,7 @@ import Main from './Login';
 import MainPage from '../components/MainPage/MainPage';
 import '../App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>

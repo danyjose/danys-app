@@ -1,6 +1,8 @@
 import React, {useState}from 'react';
-import Button from '../Button/Button';
 import { useHistory } from "react-router-dom";
+
+import Input from '../Input/Input';
+import Button from '../Button/Button';
 import './loginview.css';
 
 const Login = () => {
@@ -30,14 +32,14 @@ const Login = () => {
             <p>Don't have an account? Create an account, it takes less than a minute.</p>
             <form  onSubmit = {onLogin}>
                     <p className = "login-error">{error}</p>
-                    <input className = "login-input"
+                    <Input className = "login-input"
                         type = 'text'
                         placeholder = 'Username'
                         id = 'userName'
                         value = {userName}
                         onChange={e => setUserName(e.target.value)}
                     /> 
-                    <input className = "login-input"
+                    <Input className = "login-input"
                         type ="Password"
                         placeholder = "Password"
                         id="password"
@@ -46,7 +48,7 @@ const Login = () => {
                     />
                 <div>
                     <div className = "login-remember-me">
-                        <input
+                        <Input
                             name = "rememberMe"
                             type = "checkbox"
                         />
