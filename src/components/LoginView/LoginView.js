@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "@reach/router"
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -8,7 +8,7 @@ import './loginview.css';
 const Login = () => {
     const [formState, setFormState] = useState({userName: "", password: ""});
     const [error, setError] = useState('');
-    let history = useHistory();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,7 +26,7 @@ const Login = () => {
             setTimeout(function(){ setError(""); }, 3000);
         } else {
             setFormState({});
-            history.push('/mainPage');
+            navigate('/mainPage');
         }
         console.log(formState.userName,formState.password);
     }

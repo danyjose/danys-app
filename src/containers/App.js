@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter,Route, Switch} from 'react-router-dom';
+// import {BrowserRouter,Route, Switch} from 'react-router-dom';
+import { Router } from "@reach/router"
 
 import Main from './Login';
 import MainPage from '../components/MainPage/MainPage';
@@ -8,16 +9,12 @@ import '../App.css';
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route  exact path='/'>
-            <Main />
-          </Route>
-          <Route path='/mainPage'>
-            <MainPage />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+          <Router>
+            <Main path = "/"></Main>
+          </Router>
+          <Router>
+            <MainPage path = "/mainPage" />
+          </Router>
     </div>
   );
 }
