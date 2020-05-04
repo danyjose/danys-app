@@ -54,9 +54,7 @@ const Login = () => {
                     </div>
                     <div className = "login-forgot-pass">Forgot Password?</div>
                 </div>
-                <Button className = "login-button">
-                    Login
-                </Button>
+                <Button className = "login-button" text = "Login"/>
             </form>
         </div>
     )

@@ -19,23 +19,15 @@
     border-radius: 50px;
     box-shadow: 0px 5px 10px 0px #565454a8;
 }
-.twitter {
-    background-color: #28a5d1;
-}
-.facebook {
-    background-color: #3b5898;
-}
-.left-panel-icon {
-    width: 30px;
-    vertical-align: middle;
-}
-.left-panel-span {
-    line-height: 50px;
-    display: inline-block;
-}
 h1 {
     font-size: 5em;
 }
 .left-socialmedia-text {
     font-weight: bold;
+}
+.twitter {
+    background-color: #28a5d1;
+}
+.facebook {
+    background-color: #3b5898;
 }
