@@ -11,11 +11,11 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, checked } = e.target;
         console.log("handeChange",name, value);
         setFormState({
             ...formState,
-            [name]: value
+            [name]: checked ? checked : value
           });
       };
       console.log(formState);
@@ -54,7 +54,7 @@ const Login = () => {
                 <div>
                     <div className = "login-remember-me">
                         <Input
-                            name = "rememberMe"
+                            name = "isRemembered"
                             type = "checkbox"
                             value = {formState.isRemembered}
                             onChange = {handleChange}
