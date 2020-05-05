@@ -5,7 +5,6 @@ const Input = ({className, type, placeholder, id, ...props}) => {
     <input className = {className}
         type = {type}
         placeholder = {placeholder}
-        id = {id}
         {...props}
     /> 
     );

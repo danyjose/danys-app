@@ -2,6 +2,8 @@ import React from 'react';
 
 import './leftpanel.css';
 import Button from '../Button/Button';
+import twitter from  '../../Images/twitter.png';
+import facebook from  '../../Images/facebook.png';
 
 const LeftPanel = () =>{
     return (
@@ -13,8 +15,8 @@ const LeftPanel = () =>{
            <p className = "left-socialmedia-text">
                Login with social media
            </p>
-           <Button className = "left-panel-button facebook" type = "icon" />
-           <Button className = "left-panel-button twitter" type = "text-icon" text = "Login with Twitter"/>
+           <Button className = "left-panel-button facebook" src = {facebook} type = "icon" />
+           <Button className = "left-panel-button twitter" src = {twitter} type = "text-icon" text = "Login with Twitter"/>
         </div>
     )
 

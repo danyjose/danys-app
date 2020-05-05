@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 import './loginview.css';
 
 const Login = () => {
-    const [formState, setFormState] = useState({userName: "", password: ""});
+    const [formState, setFormState] = useState({userName: "", password: "", isRemembered: false});
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -18,11 +18,12 @@ const Login = () => {
             [name]: value
           });
       };
+      console.log(formState);
     const onLogin = (event) => {
         event.preventDefault();
         console.log(formState.userName, formState.password);
-        if(formState.userName !== 'danyjose' && formState.password !== '1234') {
-            setError('Usename or password is incorrect!')
+        if(formState.userName !== 'danyjose' || formState.password !== '1234') {
+            setError('Username or password is incorrect!')
             setTimeout(function(){ setError(""); }, 3000);
         } else {
             setFormState({});
@@ -39,7 +40,6 @@ const Login = () => {
                     <Input className = "login-input"
                         type = 'text'
                         placeholder = 'Username'
-                        id = 'userName'
                         value = {formState.userName}
                         name = 'userName'
                         onChange={handleChange}
@@ -47,7 +47,6 @@ const Login = () => {
                     <Input className = "login-input"
                         type ="Password"
                         placeholder = "Password"
-                        id="password"
                         value = {formState.password}
                         name = 'password'
                         onChange={handleChange}
@@ -57,6 +56,8 @@ const Login = () => {
                         <Input
                             name = "rememberMe"
                             type = "checkbox"
+                            value = {formState.isRemembered}
+                            onChange = {handleChange}
                         />
                         Remember me
                     </div>
