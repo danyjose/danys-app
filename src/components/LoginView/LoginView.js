@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import { useNavigate } from "@reach/router"
+import { useNavigate, Link } from "@reach/router"
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -33,7 +33,9 @@ const Login = () => {
     return(
         <div className = "login-panel">
             <h1 className = "login-header">Login</h1>
-            <p>Don't have an account? Create an account, it takes less than a minute.</p>
+            <p>Don't have an account?
+                    <Link className = "link-style" to = "/createAccount"> Create an account</Link>
+                , it takes less than a minute.</p>
             <form  onSubmit = {onLogin}>
                     <p className = "login-error">{error}</p>
                     <Input className = "login-input"
