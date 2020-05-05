@@ -1,5 +1,4 @@
 import React from 'react';
-// import {BrowserRouter,Route, Switch} from 'react-router-dom';
 import { Router } from "@reach/router"
 
 import Login from './Login';

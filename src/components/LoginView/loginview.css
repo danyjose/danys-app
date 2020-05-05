@@ -45,7 +45,3 @@ input:focus {
 .login-error {
     color: #7d0000;
 }
-.link-style {
-  color: #3b5898;
-  text-decoration-line: unset;
-}
