@@ -3,6 +3,7 @@ import {Router} from '@reach/router';
 import LoginView  from '../components/LoginView/LoginView';
 import LeftPanel  from '../components/LeftPanel/LeftPanel';
 import CreateAccount from '../components/CreateAccount/CreateAccount';
+import ResetPassword from '../components/ResetPassword/ResetPassword';
 
 
 class Login extends React.Component {
@@ -14,6 +15,7 @@ class Login extends React.Component {
             <Router>
                 <LoginView path = "/" />
                 <CreateAccount path = "/createAccount" />
+                <ResetPassword path = "/resetPassword" />
             </Router>
         </div>
         )

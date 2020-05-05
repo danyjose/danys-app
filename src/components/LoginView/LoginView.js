@@ -63,7 +63,11 @@ const Login = () => {
                         />
                         Remember me
                     </div>
-                    <div className = "login-forgot-pass">Forgot Password?</div>
+                    <div>
+                        <Link to = "/resetPassword" className = "login-forgot-pass">
+                        Forgot Password?
+                        </Link>
+                        </div>
                 </div>
                 <Button className = "login-button" text = "Login"/>
             </form>
