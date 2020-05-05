@@ -1,8 +1,7 @@
 import React from 'react';
-// import {BrowserRouter,Route, Switch} from 'react-router-dom';
 import { Router } from "@reach/router"
 
-import Main from './Login';
+import Login from './Login';
 import MainPage from '../components/MainPage/MainPage';
 import '../App.css';
 
@@ -10,9 +9,7 @@ const App = () => {
   return (
     <div className="App">
           <Router>
-            <Main path = "/"></Main>
-          </Router>
-          <Router>
+            <Login path = "/" />
             <MainPage path = "/mainPage" />
           </Router>
     </div>

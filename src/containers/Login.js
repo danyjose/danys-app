@@ -3,7 +3,7 @@ import LoginView  from '../components/LoginView/LoginView';
 import LeftPanel  from '../components/LeftPanel/LeftPanel';
 
 
-class Main extends React.Component {
+class Login extends React.Component {
 
     render () {
         return (
@@ -15,4 +15,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default Login;
