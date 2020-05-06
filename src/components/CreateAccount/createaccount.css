@@ -26,7 +26,6 @@
     width: 100%;
     margin-top: 25px;
     font-size: large;
-    border-bottom: 2px solid #737373;
 }
 input:focus {
     border-color: black
@@ -39,4 +38,20 @@ input:focus {
 .link-style {
     color: #3b5898;
     text-decoration-line: unset;
+}
+/* .icon-validity {
+    display: none;
+} */
+.valid {
+    display: inline;
+}
+.input-block {
+    display: flex;
+    border-bottom: 2px solid #737373;
+}
+.valid-message {
+    color: darkgreen;
+}
+.invalid-message {
+    color: maroon;
 }
