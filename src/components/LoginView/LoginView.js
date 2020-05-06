@@ -27,7 +27,7 @@ const Login = () => {
             setTimeout(function(){ setError(""); }, 3000);
         } else {
             setFormState({});
-            navigate('/mainPage');
+            navigate('/');
         }
         console.log(formState.userName,formState.password);
     }
@@ -35,7 +35,7 @@ const Login = () => {
         <div className = "login-panel">
             <h1 className = "login-header">Login</h1>
             <p>Don't have an account?
-                    <Link className = "link-style" to = "/createAccount"> Create an account</Link>
+                    <Link className = "link-style" to = "/login/createAccount"> Create an account</Link>
                 , it takes less than a minute.</p>
             <form  onSubmit = {onLogin}>
                     <p className = "login-error">{error}</p>
@@ -64,7 +64,7 @@ const Login = () => {
                         Remember me
                     </div>
                     <div>
-                        <Link to = "/resetPassword" className = "login-forgot-pass">
+                        <Link to = "/login/resetPassword" className = "login-forgot-pass">
                         Forgot Password?
                         </Link>
                         </div>

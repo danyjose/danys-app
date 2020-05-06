@@ -9,7 +9,7 @@ const CreateAccount = () => {
         <div className = "create-panel">
             <h1 className = "create-header">Create An Account</h1>
             <p>Create an account it takes less than a minute. If you already have an account  
-                <Link className = "link-style" to = "/"> login</Link>.</p>
+                <Link className = "link-style" to = "/login"> login</Link>.</p>
             <form>
                 <Input className = "create-input"
                     type='text'
@@ -23,7 +23,7 @@ const CreateAccount = () => {
                     type='Password'
                     placeholder='Password'
                 />
-                <inpInputut className = "create-input"
+                <Input className = "create-input"
                     type='Password'
                     placeholder='Repeat Password'
                 />

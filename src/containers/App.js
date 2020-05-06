@@ -10,8 +10,8 @@ const App = () => {
   return (
     <div className="App">
           <Router>
-            <Login path="/*" />
-            <MainPage path = "/mainPage"></MainPage>
+            <MainPage path = "/"></MainPage>
+            <Login path="/login/*" />
           </Router>
     </div>
   );

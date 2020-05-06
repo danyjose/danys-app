@@ -15,7 +15,7 @@ const ResetPassword = () => {
                     type='text'
                     placeholder='Full Name'
                 />
-                <div> <Link to = "/" className = "login-forgot-pass"> Go Back to Login </Link></div>
+                <div> <Link to = "/login" className = "login-forgot-pass"> Go Back to Login </Link></div>
                 <Button className = "reset-button" text = "Reset Password">
                 </Button>
             </form>

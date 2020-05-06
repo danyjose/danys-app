@@ -13,7 +13,7 @@ class Login extends React.Component {
         <div>
             <LeftPanel />
             <Router>
-                <LoginView path = "/" />
+                <LoginView path = "/*" />
                 <CreateAccount path = "/createAccount" />
                 <ResetPassword path = "/resetPassword" />
             </Router>
