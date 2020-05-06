@@ -74,7 +74,7 @@ const CreateAccount = () => {
             <h1 className = "create-header">Create An Account</h1>
             <p>Create an account it takes less than a minute. If you already have an account  
                 <Link className = "link-style" to = "/login"> login</Link>.</p>
-            <p className ={infoMessage} >{message}</p>
+            <p className ={infoClass} >{message}</p>
             <form onSubmit = {validate}>
                 <div className = "input-block">
                     <Input className = "create-input"
