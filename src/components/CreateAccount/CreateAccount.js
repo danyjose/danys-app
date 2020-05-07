@@ -19,7 +19,6 @@ const CreateAccount = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log("handeChange",name, value);
         setFormState({
             ...formState,
             [name]: value
@@ -28,7 +27,6 @@ const CreateAccount = () => {
     const validate = (event) => {
         event.preventDefault();
         setHasSubmitted (true);
-        console.log("formState",formState);
         const nameformat = /^[A-Za-z\s]+$/;
         const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
