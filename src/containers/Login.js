@@ -6,20 +6,18 @@ import CreateAccount from '../components/CreateAccount/CreateAccount';
 import ResetPassword from '../components/ResetPassword/ResetPassword';
 
 
-class Login extends React.Component {
+const Login = ({setLoggedin}) => {
 
-    render () {
-        return (
+    return (
         <div>
             <LeftPanel />
             <Router>
-                <LoginView path = "/*" default />
+                <LoginView setLoggedin = {setLoggedin} path = "/*"  />
                 <CreateAccount path = "/createAccount" />
                 <ResetPassword path = "/resetPassword" />
             </Router>
         </div>
-        )
-    }
+    ) ;
 }
 
 export default Login;

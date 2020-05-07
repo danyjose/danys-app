@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 import './loginview.scss';
 
-const Login = () => {
+const Login = ({setLoggedin}) => {
     const [formState, setFormState] = useState({userName: "", password: "", isRemembered: false});
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -24,6 +24,7 @@ const Login = () => {
             setTimeout(function(){ setError(""); }, 3000);
         } else {
             setFormState({});
+            setLoggedin(true);
             navigate('/');
         }
     }
