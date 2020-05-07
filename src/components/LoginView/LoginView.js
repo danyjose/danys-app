@@ -3,7 +3,7 @@ import { useNavigate, Link } from "@reach/router"
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import './loginview.css';
+import './loginview.scss';
 
 const Login = () => {
     const [formState, setFormState] = useState({userName: "", password: "", isRemembered: false});
@@ -12,16 +12,13 @@ const Login = () => {
 
     const handleChange = (e) => {
         const { name, value, checked } = e.target;
-        console.log("handeChange",name, value);
         setFormState({
             ...formState,
             [name]: checked ? checked : value
           });
       };
-      console.log(formState);
     const onLogin = (event) => {
         event.preventDefault();
-        console.log(formState.userName, formState.password);
         if(formState.userName !== 'danyjose' || formState.password !== '1234') {
             setError('Username or password is incorrect!')
             setTimeout(function(){ setError(""); }, 3000);
@@ -29,7 +26,6 @@ const Login = () => {
             setFormState({});
             navigate('/');
         }
-        console.log(formState.userName,formState.password);
     }
     return(
         <div className = "login-panel">

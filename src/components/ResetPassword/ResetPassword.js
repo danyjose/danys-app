@@ -3,7 +3,7 @@ import { Link } from "@reach/router"
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import './resetpassword.css';
+import './resetpassword.scss';
 
 const ResetPassword = () => {
     return(

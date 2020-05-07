@@ -4,7 +4,7 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 import valid from  '../../Images/valid.png';
 import invalid from  '../../Images/invalid.png';
-import './createaccount.css';
+import './createaccount.scss';
 
 const CreateAccount = () => {
 
