@@ -11,9 +11,9 @@ const ResetPassword = () => {
             <h1 className = "create-header">Reset Password</h1>
             <p>We'll email you instructions on how to reset your password'.</p>
             <form>
-                <Input className = "create-input"
+                <Input className = "reset-email-input"
                     type='text'
-                    placeholder='Full Name'
+                    placeholder='Enter Email Address'
                 />
                 <div> <Link to = "/login" className = "login-forgot-pass"> Go Back to Login </Link></div>
                 <Button className = "reset-button" text = "Reset Password">

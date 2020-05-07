@@ -15,7 +15,8 @@ const CreateAccount = () => {
     const [repeatPasswordValidity, setRepeatPasswordValidity] = useState(false);
     const [message, setMessage] = useState('');
     const [infoClass, setInfoClass] = useState('');
-    let infoMessage;
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         console.log("handeChange",name, value);
@@ -26,42 +27,22 @@ const CreateAccount = () => {
       };
     const validate = (event) => {
         event.preventDefault();
+        setHasSubmitted (true);
         console.log("formState",formState);
         const nameformat = /^[A-Za-z\s]+$/;
         const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        // if(formState.fullName.trim().match(nameformat)){
-        //     console.log("All letters");
-        //     setNameValidity(true);
-        // } else {
-        //     console.log("invalid");
-        //     setNameValidity(false);
-        // }
-        setNameValidity(formState.fullName.trim().match(nameformat));
-        // if(formState.email.match(emailformat)) {
-        //     console.log("valid email");
-        //     setEmailValidity(true);
-        // } else {
-        //     console.log("ïnvalid email");
-        //     setEmailValidity(false);
-        // }
-        setEmailValidity(formState.email.match(emailformat));
-        //  if(formState.password.length>=6) {
-        //     console.log("valid password");
-        //     setPasswordValidity(true);
-        // } else {
-        //     console.log("ïnvalid password");
-        //     setPasswordValidity(false);
-        // }
-        setPasswordValidity(formState.password.length>=6);
-        // if(passwordValidity && formState.repeatPassword === formState.password) {
-        //     console.log("password matches");
-        //     setRepeatPasswordValidity(true);
-        // } else {
-        //     console.log("password does not match");
-        //     setRepeatPasswordValidity(false);
-        // }
-        setRepeatPasswordValidity(passwordValidity && formState.repeatPassword === formState.password);
-        if(nameValidity && emailValidity && passwordValidity && repeatPasswordValidity) {
+
+        const nameValidityCheck = nameformat.test(formState.fullName.trim());
+        const emailValidityCheck = emailformat.test(formState.email);
+        const passwordValidityCheck = formState.password.length>=6;
+        const repeatPasswordValidityCheck = passwordValidityCheck && formState.repeatPassword === formState.password;
+
+        setNameValidity(nameValidityCheck);
+        setEmailValidity(emailValidityCheck);
+        setPasswordValidity(passwordValidityCheck);
+        setRepeatPasswordValidity(repeatPasswordValidityCheck);
+
+        if(nameValidityCheck && emailValidityCheck && passwordValidityCheck && repeatPasswordValidityCheck) {
             setInfoClass("valid-message");
             setMessage("You have created an account");
         } else {
@@ -84,7 +65,7 @@ const CreateAccount = () => {
                         value={formState.fullName}
                         onChange={handleChange}
                     />
-                    <img src={nameValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>
+                {hasSubmitted && <img src={nameValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>}
                 </div>
                 <div className = "input-block"> 
                     <Input className = "create-input"
@@ -94,7 +75,7 @@ const CreateAccount = () => {
                         value={formState.email}
                         onChange={handleChange}
                     />
-                    <img src={emailValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>
+                {hasSubmitted && <img src={emailValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>}
                 </div>
                 <div className = "input-block"> 
                     <Input className = "create-input"
@@ -104,7 +85,7 @@ const CreateAccount = () => {
                         value={formState.password}
                         onChange={handleChange}
                     />
-                <img src={passwordValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>
+                {hasSubmitted && <img src={passwordValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>}
                 </div>
                 <div className = "input-block"> 
                     <Input className = "create-input"
@@ -114,7 +95,7 @@ const CreateAccount = () => {
                         value={formState.repeatPassword}
                         onChange={handleChange}
                     />
-                <img src={repeatPasswordValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>
+                {hasSubmitted && <img src={repeatPasswordValidity ? valid : invalid} className="icon-validity"  alt="validity"></img>}
                 </div>
                 <Button className = "create-button" text = "Create an Account">
                 </Button>
