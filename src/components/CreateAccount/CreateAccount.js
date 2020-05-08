@@ -7,8 +7,8 @@ import './createaccount.scss';
 const CreateAccount = () => {
 
     const [formState, setFormState] = useState({fullName: "", email: "", password: "", repeatPassword: ""});
+    const [infoMessage, setInfoMessage]= useState('');
     const [hasSubmitted, setHasSubmitted] = useState(false);
-    
     const nameformat = /^[A-Za-z\s]+$/;
     const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -19,29 +19,26 @@ const CreateAccount = () => {
             [name]: value
           });
       };
-    // const displayMessageOnSubmit = () => {
-
-    //     const nameValidityCheck = nameformat.test(formState.fullName.trim());
-    //     const emailValidityCheck = emailformat.test(formState.email);
-    //     const passwordValidityCheck = formState.password.length>=6;
-    //     const repeatPasswordValidityCheck = passwordValidityCheck && formState.repeatPassword === formState.password;
-
-    //     if( nameValidityCheck && emailValidityCheck && passwordValidityCheck && repeatPasswordValidityCheck) {
-    //         return <p className = "valid-message">You have created an account</p>
-    //     } else {
-    //         return <p className = "invalid-message">Fix the issues</p>
-    //     }
-    // }
     const validate = (event) => {
         event.preventDefault();
         setHasSubmitted (true);
+        const nameValidityCheck = nameformat.test(formState.fullName.trim());
+        const emailValidityCheck = emailformat.test(formState.email);
+        const passwordValidityCheck = formState.password.length>=6;
+        const repeatPasswordValidityCheck = passwordValidityCheck && formState.repeatPassword === formState.password;
+
+        if( nameValidityCheck && emailValidityCheck && passwordValidityCheck && repeatPasswordValidityCheck) {
+            setInfoMessage(<p className = "valid-message">You have created an account</p>);
+        } else {
+            setInfoMessage(<p className = "invalid-message">Fix the issues</p>);
+        }
     }
     return(
         <div className = "create-panel">
             <h1 className = "create-header">Create An Account</h1>
             <p>Create an account it takes less than a minute. If you already have an account  
                 <Link className = "link-style" to = "/login"> login</Link>.</p>
-
+            <p>{infoMessage}</p>
             <form onSubmit = {validate}>
                 <Input className = "create-input"
                     isValid = {nameformat.test(formState.fullName.trim())}

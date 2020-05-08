@@ -6,6 +6,7 @@ const Input = ({className,isValid,hasSubmitted,type, ...props}) => {
     return (
         <div className="input-block">
             <input className = {className}
+            type = {type}
             {...props} />
             {hasSubmitted && <img src={isValid ? valid : invalid}  alt="validity"></img>}
         </div>
