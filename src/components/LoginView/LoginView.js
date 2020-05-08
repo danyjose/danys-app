@@ -52,7 +52,7 @@ const Login = ({setLoggedin}) => {
                     />
                 <div>
                     <div className = "login-remember-me">
-                        <Input
+                        <input
                             name = "isRemembered"
                             type = "checkbox"
                             value = {formState.isRemembered}

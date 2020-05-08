@@ -1,12 +1,14 @@
 import React from 'react';
+import valid from  '../../Images/valid.png';
+import invalid from  '../../Images/invalid.png';
 import './input.scss'
-const Input = ({className, type, placeholder, id, ...props}) => {
+const Input = ({className,isValid,hasSubmitted,type, ...props}) => {
     return (
-    <input className = {className}
-        type = {type}
-        placeholder = {placeholder}
-        {...props}
-    /> 
+        <div className="input-block">
+            <input className = {className}
+            {...props} />
+            {hasSubmitted && <img src={isValid ? valid : invalid}  alt="validity"></img>}
+        </div>
     );
 }
 
