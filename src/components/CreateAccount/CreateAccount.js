@@ -30,7 +30,7 @@ const CreateAccount = () => {
         if( nameValidityCheck && emailValidityCheck && passwordValidityCheck && repeatPasswordValidityCheck) {
             setInfoMessage(<p className = "valid-message">You have created an account</p>);
         } else {
-            setInfoMessage(<p className = "invalid-message">Fix the issues</p>);
+            setInfoMessage(<p className = "invalid-message">Enter valid information</p>);
         }
     }
     return(
@@ -47,7 +47,6 @@ const CreateAccount = () => {
                     name='fullName'
                     value={formState.fullName}
                     onChange={handleChange}
-                    hasSubmitted = {hasSubmitted}
                 />
                 <Input className = "create-input"
                     isValid = {emailformat.test(formState.email)}
@@ -56,7 +55,6 @@ const CreateAccount = () => {
                     name='email'
                     value={formState.email}
                     onChange={handleChange}
-                    hasSubmitted = {hasSubmitted}
                 />
                 <Input className = "create-input"
                     isValid={formState.password.length>=6}
@@ -65,7 +63,6 @@ const CreateAccount = () => {
                     name='password'
                     value={formState.password}
                     onChange={handleChange}
-                    hasSubmitted = {hasSubmitted}
                 />
                 <Input className = "create-input"
                     isValid = {(formState.password.length>=6) && formState.repeatPassword === formState.password}
@@ -74,7 +71,6 @@ const CreateAccount = () => {
                     name='repeatPassword'
                     value={formState.repeatPassword}
                     onChange={handleChange}
-                    hasSubmitted = {hasSubmitted}
                 />
                 <Button className = "create-button" text = "Create an Account">
                 </Button>
