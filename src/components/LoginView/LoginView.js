@@ -42,6 +42,7 @@ const Login = ({setLoggedin}) => {
                         value = {formState.userName}
                         name = 'userName'
                         onChange={handleChange}
+                        validateField= {false}
                     /> 
                     <Input className = "login-input"
                         type ="Password"
@@ -49,6 +50,7 @@ const Login = ({setLoggedin}) => {
                         value = {formState.password}
                         name = 'password'
                         onChange={handleChange}
+                        validateField= {false}
                     />
                 <div>
                     <div className = "login-remember-me">

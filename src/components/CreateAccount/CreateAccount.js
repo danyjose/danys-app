@@ -8,7 +8,6 @@ const CreateAccount = () => {
 
     const [formState, setFormState] = useState({fullName: "", email: "", password: "", repeatPassword: ""});
     const [infoMessage, setInfoMessage]= useState('');
-    const [hasSubmitted, setHasSubmitted] = useState(false);
     const nameformat = /^[A-Za-z\s]+$/;
     const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -21,7 +20,6 @@ const CreateAccount = () => {
       };
     const validate = (event) => {
         event.preventDefault();
-        setHasSubmitted (true);
         const nameValidityCheck = nameformat.test(formState.fullName.trim());
         const emailValidityCheck = emailformat.test(formState.email);
         const passwordValidityCheck = formState.password.length>=6;
@@ -47,6 +45,7 @@ const CreateAccount = () => {
                     name='fullName'
                     value={formState.fullName}
                     onChange={handleChange}
+                    validateField={true}
                 />
                 <Input className = "create-input"
                     isValid = {emailformat.test(formState.email)}
@@ -55,6 +54,7 @@ const CreateAccount = () => {
                     name='email'
                     value={formState.email}
                     onChange={handleChange}
+                    validateField={true}
                 />
                 <Input className = "create-input"
                     isValid={formState.password.length>=6}
@@ -63,6 +63,7 @@ const CreateAccount = () => {
                     name='password'
                     value={formState.password}
                     onChange={handleChange}
+                    validateField={true}
                 />
                 <Input className = "create-input"
                     isValid = {(formState.password.length>=6) && formState.repeatPassword === formState.password}
@@ -71,6 +72,7 @@ const CreateAccount = () => {
                     name='repeatPassword'
                     value={formState.repeatPassword}
                     onChange={handleChange}
+                    validateField={true}
                 />
                 <Button className = "create-button" text = "Create an Account">
                 </Button>
