@@ -1,9 +1,28 @@
 .main-page {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     color: white;
     font-size: 3em;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('../../Images/krystal.jpg');
+}
+.input-main {
+    width: 25%;
+    padding: 10px;
+}
+.mainPage-button{
+    border: none;
+    height: 50px;
+    outline: none;
+    color: white;
+    font-size: 1.3rem;
+    padding: 0px 30px;
+    border-radius: 50px;
+    background-color: yellowgreen;
+    box-shadow: 0px 5px 10px 0px #565454a8;
+}
+.quote-list {
+    color: #ff69bb;
+    font-size: 2rem;
 }
