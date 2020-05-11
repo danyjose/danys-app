@@ -2,9 +2,9 @@ import React from 'react';
 import valid from  '../../Images/valid.png';
 import invalid from  '../../Images/invalid.png';
 import './input.scss'
-const Input = ({className,isValid,hasSubmitted,type,value,validateField, ...props}) => {
+const Input = ({className,isValid,hasSubmitted,type,value,validateField,wrapdiv, ...props}) => {
     return (
-        <div className="input-block">
+        <div className={wrapdiv}>
             <input className = {className}
             type = {type}
             {...props} />

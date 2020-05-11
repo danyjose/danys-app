@@ -43,6 +43,7 @@ const Login = ({setLoggedin}) => {
                         name = 'userName'
                         onChange={handleChange}
                         validateField= {false}
+                        wrapdiv ="input-block"
                     /> 
                     <Input className = "login-input"
                         type ="Password"
@@ -51,6 +52,7 @@ const Login = ({setLoggedin}) => {
                         name = 'password'
                         onChange={handleChange}
                         validateField= {false}
+                        wrapdiv ="input-block"
                     />
                 <div>
                     <div className = "login-remember-me">
@@ -59,6 +61,7 @@ const Login = ({setLoggedin}) => {
                             type = "checkbox"
                             value = {formState.isRemembered}
                             onChange = {handleChange}
+                            wrapdiv ="input-block"
                         />
                         Remember me
                     </div>
