@@ -14,6 +14,7 @@ const ResetPassword = () => {
                 <Input className = "reset-email-input"
                     type='text'
                     placeholder='Enter Email Address'
+                    wrapdiv ="input-block"
                 />
                 <div> <Link to = "/login" className = "login-forgot-pass"> Go Back to Login </Link></div>
                 <Button className = "reset-button" text = "Reset Password">

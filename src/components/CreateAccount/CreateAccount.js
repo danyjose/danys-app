@@ -6,8 +6,7 @@ import './createaccount.scss';
 
 const CreateAccount = () => {
 
-    const [formState, setFormState] = useState({fullName: "", email: "", password: "", repeatPassword: ""});
-    const [infoMessage, setInfoMessage]= useState('');
+    const [formState, setFormState] = useState({fullName: "", email: "", password: "", repeatPassword: "", isValid:undefined});
     const nameformat = /^[A-Za-z\s]+$/;
     const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -26,9 +25,15 @@ const CreateAccount = () => {
         const repeatPasswordValidityCheck = passwordValidityCheck && formState.repeatPassword === formState.password;
 
         if( nameValidityCheck && emailValidityCheck && passwordValidityCheck && repeatPasswordValidityCheck) {
-            setInfoMessage(<p className = "valid-message">You have created an account</p>);
+            setFormState({
+                ...formState,
+                isValid: true
+              });
         } else {
-            setInfoMessage(<p className = "invalid-message">Enter valid information</p>);
+            setFormState({
+                ...formState,
+                isValid: false
+              });
         }
     }
     return(
@@ -36,7 +41,7 @@ const CreateAccount = () => {
             <h1 className = "create-header">Create An Account</h1>
             <p>Create an account it takes less than a minute. If you already have an account  
                 <Link className = "link-style" to = "/login"> login</Link>.</p>
-            <p>{infoMessage}</p>
+            {typeof formState.isValid === "boolean" && ( formState.isValid ?  <p className = "valid-message">You have created an account</p>  : <p className = "invalid-message">Enter valid information</p> )}
             <form onSubmit = {validate}>
                 <Input className = "create-input"
                     isValid = {nameformat.test(formState.fullName.trim())}
@@ -46,6 +51,7 @@ const CreateAccount = () => {
                     value={formState.fullName}
                     onChange={handleChange}
                     validateField={true}
+                    wrapdiv ="input-block"
                 />
                 <Input className = "create-input"
                     isValid = {emailformat.test(formState.email)}
@@ -55,6 +61,7 @@ const CreateAccount = () => {
                     value={formState.email}
                     onChange={handleChange}
                     validateField={true}
+                    wrapdiv ="input-block"
                 />
                 <Input className = "create-input"
                     isValid={formState.password.length>=6}
@@ -64,6 +71,7 @@ const CreateAccount = () => {
                     value={formState.password}
                     onChange={handleChange}
                     validateField={true}
+                    wrapdiv ="input-block"
                 />
                 <Input className = "create-input"
                     isValid = {(formState.password.length>=6) && formState.repeatPassword === formState.password}
@@ -73,6 +81,7 @@ const CreateAccount = () => {
                     value={formState.repeatPassword}
                     onChange={handleChange}
                     validateField={true}
+                    wrapdiv ="input-block"
                 />
                 <Button className = "create-button" text = "Create an Account">
                 </Button>
