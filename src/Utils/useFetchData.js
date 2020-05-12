@@ -38,7 +38,7 @@ function useFetchData(url, param) {
         }
       }
       fetchData()
-    },[]);
+    },[param]);
 
 return data;
 }
