@@ -1,40 +1,39 @@
 import React, {useState}from 'react';
-import { useNavigate } from "@reach/router"
+import { useNavigate, Link } from "@reach/router"
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import './loginview.css';
+import './loginview.scss';
 
-const Login = () => {
+const Login = ({setLoggedin}) => {
     const [formState, setFormState] = useState({userName: "", password: "", isRemembered: false});
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, checked } = e.target;
-        console.log("handeChange",name, value);
         setFormState({
             ...formState,
             [name]: checked ? checked : value
           });
       };
-      console.log(formState);
     const onLogin = (event) => {
         event.preventDefault();
-        console.log(formState.userName, formState.password);
         if(formState.userName !== 'danyjose' || formState.password !== '1234') {
             setError('Username or password is incorrect!')
             setTimeout(function(){ setError(""); }, 3000);
         } else {
             setFormState({});
-            navigate('/mainPage');
+            setLoggedin(true);
+            navigate('/');
         }
-        console.log(formState.userName,formState.password);
     }
     return(
         <div className = "login-panel">
             <h1 className = "login-header">Login</h1>
-            <p>Don't have an account? Create an account, it takes less than a minute.</p>
+            <p>Don't have an account?
+                    <Link className = "link-style" to = "/login/createAccount"> Create an account</Link>
+                , it takes less than a minute.</p>
             <form  onSubmit = {onLogin}>
                     <p className = "login-error">{error}</p>
                     <Input className = "login-input"
@@ -43,6 +42,7 @@ const Login = () => {
                         value = {formState.userName}
                         name = 'userName'
                         onChange={handleChange}
+                        validateField= {false}
                     /> 
                     <Input className = "login-input"
                         type ="Password"
@@ -50,10 +50,11 @@ const Login = () => {
                         value = {formState.password}
                         name = 'password'
                         onChange={handleChange}
+                        validateField= {false}
                     />
                 <div>
                     <div className = "login-remember-me">
-                        <Input
+                        <input
                             name = "isRemembered"
                             type = "checkbox"
                             value = {formState.isRemembered}
@@ -61,7 +62,11 @@ const Login = () => {
                         />
                         Remember me
                     </div>
-                    <div className = "login-forgot-pass">Forgot Password?</div>
+                    <div>
+                        <Link to = "/login/resetPassword" className = "login-forgot-pass">
+                        Forgot Password?
+                        </Link>
+                        </div>
                 </div>
                 <Button className = "login-button" text = "Login"/>
             </form>
