@@ -8,14 +8,12 @@ import './mainpage.scss';
 
 const MainPage = ({loggedin}) => {
     const [inputValue, setInputValue] = useState(0);
-    const [buttonState, setButtonState]= useState(0);
-    const getData = useFetchData('http://ron-swanson-quotes.herokuapp.com/v2/quotes/',buttonState);
-    console.log(getData);
+    const [data, fetchData] = useFetchData('http://ron-swanson-quotes.herokuapp.com/v2/quotes/');
+    console.log(data);
 
     if(!loggedin) {
         return <Redirect to="/login" noThrow />
     } else {
-        console.log(getData.responseData);
         return (
                     <div className = "main-page">
                         Welcome to Ron Swanson Quotes!! 
@@ -26,10 +24,10 @@ const MainPage = ({loggedin}) => {
                             name = 'count'
                             onChange= {(e)=>{setInputValue(e.target.value)}}
                         /> 
-                        <Button className = "mainPage-button" text = "Enter" onClick={() => {setButtonState(inputValue)}} />
+                        <Button className = "mainPage-button" text = "Enter" onClick={() => {fetchData(inputValue)}} />
                         <ul>
-                            {getData.responseData && getData.responseData.map((element, i) => (
-                                <li className = "quote-list">{element}</li>
+                            {data.responseData && data.responseData.map((element, i) => (
+                                <li key = {i} className = "quote-list">{element}</li>
                             ))}
                         </ul>
                     </div>

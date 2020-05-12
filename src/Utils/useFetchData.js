@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-function useFetchData(url, param) {
+function useFetchData(url) {
 
   const [data, setData] = useState({
     responseData: null,
@@ -12,8 +12,7 @@ function useFetchData(url, param) {
     isSuccesfull: false,
   });
 
-    React.useEffect(() => {
-      const fetchData = async () => {
+      const fetchData = async (param) => {
         setData({
           ...data,
           isInProgress: true,
@@ -37,10 +36,12 @@ function useFetchData(url, param) {
           });
         }
       }
-      fetchData()
-    },[param]);
 
-return data;
+    React.useEffect(() => {
+      fetchData();
+    },[]);
+
+return [data, fetchData];
 }
 
 export default useFetchData;
