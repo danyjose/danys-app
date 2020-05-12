@@ -9,7 +9,6 @@ import './mainpage.scss';
 const MainPage = ({loggedin}) => {
     const [inputValue, setInputValue] = useState(0);
     const [data, fetchData] = useFetchData('http://ron-swanson-quotes.herokuapp.com/v2/quotes/');
-    console.log(data);
 
     if(!loggedin) {
         return <Redirect to="/login" noThrow />
